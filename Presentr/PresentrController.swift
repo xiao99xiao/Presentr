@@ -205,8 +205,8 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
         let keyboardWasShownKey = UIResponder.keyboardWillShowNotification
         let keyboardWillHideKey = UIResponder.keyboardWillHideNotification
         #else
-        let keyboardWasShownKey = NSNotification.Name.UIKeyboardWillShow
-        let keyboardWillHideKey = NSNotification.Name.UIKeyboardWillHide
+        let keyboardWasShownKey = UIResponder.keyboardWillShowNotification
+        let keyboardWillHideKey = UIResponder.keyboardWillHideNotification
         #endif
 
         NotificationCenter.default.addObserver(self, selector: #selector(PresentrController.keyboardWasShown(notification:)), name: keyboardWasShownKey, object: nil)
@@ -218,8 +218,8 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
         let keyboardWasShownKey = UIResponder.keyboardWillShowNotification
         let keyboardWillHideKey = UIResponder.keyboardWillHideNotification
         #else
-        let keyboardWasShownKey = NSNotification.Name.UIKeyboardWillShow
-        let keyboardWillHideKey = NSNotification.Name.UIKeyboardWillHide
+        let keyboardWasShownKey = UIResponder.keyboardWillShowNotification
+        let keyboardWillHideKey = UIResponder.keyboardWillHideNotification
         #endif
 
         NotificationCenter.default.removeObserver(self, name: keyboardWasShownKey, object: nil)
@@ -341,7 +341,7 @@ fileprivate extension PresentrController {
                 #if swift(>=4.2)
                 let sizeKey = UIView.layoutFittingCompressedSize
                 #else
-                let sizeKey = UILayoutFittingCompressedSize
+                let sizeKey = UIView.layoutFittingCompressedSize
                 #endif
 
                 return Float(presentedViewController.view.systemLayoutSizeFitting(sizeKey).width)
@@ -358,7 +358,7 @@ fileprivate extension PresentrController {
                 #if swift(>=4.2)
                 let sizeKey = UIView.layoutFittingCompressedSize
                 #else
-                let sizeKey = UILayoutFittingCompressedSize
+                let sizeKey = UIView.layoutFittingCompressedSize
                 #endif
 
                 return Float(presentedViewController.view.systemLayoutSizeFitting(sizeKey).height)
